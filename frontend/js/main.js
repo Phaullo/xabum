@@ -10,10 +10,11 @@ const todosProdutos = [
     { id: 9, nome: "HD SSD 1TB", valor: 499.00 },
     { id: 10, nome: "Fonte 650W 80 Plus Bronze", valor: 389.90 }
 ];
-function exibirProdutos() {
+function exibirProdutos(listaProdutos) {
     const divCentral = document.getElementById('todosProdutos')
+    divCentral.innerHTML =""
 
-    todosProdutos.forEach((produto) => {
+    listaProdutos.forEach((produto) => {
         let criarCard = document.createElement('div')
         criarCard.classList.add('product-card');
 
@@ -29,4 +30,20 @@ function exibirProdutos() {
     })
 }
 
-// exibirProdutos()
+
+function configurarBusca() {
+  const campoBusca = document.getElementById('buscaProdutos');
+
+  campoBusca.addEventListener('input', () => {
+    const valorBuscado = campoBusca.value.toLowerCase();
+
+    const filtrados = todosProdutos.filter(produto =>
+      produto.nome.toLowerCase().includes(valorBuscado)
+    );
+
+    exibirProdutos(filtrados);
+  });
+}
+
+exibirProdutos(todosProdutos)
+configurarBusca() 
