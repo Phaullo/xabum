@@ -138,14 +138,14 @@
 
     <section id="login">
       <h2>Login</h2>
-      <form onsubmit="event.preventDefault(); alert('Login simulado!')">
+      <form onsubmit="alert('Login simulado!')">
         <input type="email" placeholder="E-mail" required />
         <input type="password" placeholder="Senha" required />
         <button class="primary" type="submit">Entrar</button>
       </form>
 
       <h3>Não tem conta? Cadastre-se:</h3>
-      <form onsubmit="event.preventDefault(); alert('Cadastro simulado!')">
+      <form onsubmit="alert('Cadastro simulado!')">
         <input type="text" placeholder="Nome completo" required />
         <input type="email" placeholder="E-mail" required />
         <input type="password" placeholder="Senha" required />
@@ -154,14 +154,6 @@
     </section>
   </main>
 
-  <script>
-    function showSection(id) {
-      document.querySelectorAll('section').forEach(sec => {
-        sec.classList.remove('active');
-      });
-      document.getElementById(id).classList.add('active');
-    }
-  </script>
   <script src="js/main.js"></script>
 </body>
 </html>
