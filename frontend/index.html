@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Xabum - Produtos de Informática</title>
+  <style>
+    :root {
+      --azul-claro: #4da6ff;
+      --azul-medio: #007acc;
+      --azul-escuro: #005c99;
+      --branco: #ffffff;
+      --cinza: #f0f0f0;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--cinza);
+      color: #333;
+    }
+
+    header {
+      background-color: var(--azul-medio);
+      color: var(--branco);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: var(--azul-escuro);
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: var(--branco);
+      padding: 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    nav button:hover {
+      background-color: var(--azul-claro);
+    }
+
+    section {
+      display: none;
+      padding: 2rem;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .search-bar {
+      margin-bottom: 1rem;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"] {
+      padding: 0.5rem;
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 1rem;
+    }
+
+    button.primary {
+      background-color: var(--azul-medio);
+      color: var(--branco);
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .product-card {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Xabum - Loja de Informática</h1>
+  </header>
+
+  <nav>
+    <button onclick="showSection('inicio')">Início</button>
+    <button onclick="showSection('produtos')">Produtos</button>
+    <button onclick="showSection('sobre')">Sobre</button>
+    <button onclick="showSection('login')">Login</button>
+  </nav>
+
+  <main>
+    <section id="inicio" class="active">
+      <h2>Bem-vindo à Xabum!</h2>
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar promoções..." />
+      </div>
+      <p>🔥 Promoções imperdíveis em notebooks, monitores, periféricos e muito mais!</p>
+    </section>
+
+    <section id="produtos">
+      <h2>Produtos</h2>
+      <div class="search-bar">
+        <input type="text" id="buscaProdutos" placeholder="Buscar produtos..." />
+      </div>
+      <div id='todosProdutos' class="product-list">
+        <!-- <div class="product-card">
+          <h3>Notebook Gamer</h3>
+          <p>R$ 4.999,00</p>
+        </div>
+        <div class="product-card">
+          <h3>Mouse RGB</h3>
+          <p>R$ 199,00</p>
+        </div>
+        <div class="product-card">
+          <h3>Teclado Mecânico</h3>
+          <p>R$ 299,00</p>
+        </div> -->
+        <!-- Adicione mais produtos aqui com JS -->
+      </div>
+    </section>
+
+    <section id="sobre">
+      <h2>Sobre a Xabum</h2>
+      <p>Somos especialistas em tecnologia. Atuamos desde 2020 oferecendo os melhores produtos de informática com preços acessíveis.</p>
+    </section>
+
+    <section id="login">
+      <h2>Login</h2>
+      <form onsubmit="event.preventDefault(); alert('Login simulado!')">
+        <input type="email" placeholder="E-mail" required />
+        <input type="password" placeholder="Senha" required />
+        <button class="primary" type="submit">Entrar</button>
+      </form>
+
+      <h3>Não tem conta? Cadastre-se:</h3>
+      <form onsubmit="event.preventDefault(); alert('Cadastro simulado!')">
+        <input type="text" placeholder="Nome completo" required />
+        <input type="email" placeholder="E-mail" required />
+        <input type="password" placeholder="Senha" required />
+        <button class="primary" type="submit">Cadastrar</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
