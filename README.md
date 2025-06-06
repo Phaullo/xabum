@@ -73,9 +73,11 @@ app.listen(port, () => {
 
 ## Como Usar
 1. Clone este repositório (`git clone https://github.com/SeuProjeto`).
-2. Execute `npm install` para instalar as dependências.
-3. Execute `npm start` para iniciar o servidor.
-4. Acesse `http://localhost:3000` em seu navegador para verificar se o servidor está rodando.
+2. Acesse a pasta do projeto no CMD: `cd SeuProjeto`
+3. Entre na pasta do backend no CMD: `cd backend`
+4. Execute no CMD `npm install` para instalar as dependências.
+5. Execute no CMD `npm start` para iniciar o servidor.
+6. Acesse `http://localhost:3000` em seu navegador para verificar se o servidor está rodando.
 
 ### API de Produtos
 
