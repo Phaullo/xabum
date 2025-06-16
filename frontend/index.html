@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Xabum - Produtos de Informática</title>
   <style>
     :root {
@@ -57,9 +58,14 @@
 
     .search-bar {
       margin-bottom: 1rem;
+      position: relative;
+      width: 300px;
+
     }
 
-    input[type="text"], input[type="email"], input[type="password"] {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
       padding: 0.5rem;
       width: 100%;
       max-width: 300px;
@@ -86,8 +92,30 @@
       padding: 1rem;
       border-radius: 8px;
     }
+
+    .suggestions-box {
+      position: absolute;
+      top: 40px;
+      width: 100%;
+      border: 1px solid #ccc;
+      background: white;
+      z-index: 10;
+      max-height: 150px;
+      overflow-y: auto;
+      display: none;
+    }
+
+    .suggestions-box div {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .suggestions-box div:hover {
+      background-color: #eee;
+    }
   </style>
 </head>
+
 <body>
   <header>
     <h1>Xabum - Loja de Informática</h1>
@@ -104,7 +132,8 @@
     <section id="inicio" class="active">
       <h2>Bem-vindo à Xabum!</h2>
       <div class="search-bar">
-        <input type="text" placeholder="Buscar promoções..." />
+        <input type="text" id="buscaProdutosInicio" placeholder="Buscar promoções..." />
+        <div id="suggestionsInicio" class="suggestions-box"></div>
       </div>
       <p>🔥 Promoções imperdíveis em notebooks, monitores, periféricos e muito mais!</p>
     </section>
@@ -112,10 +141,11 @@
     <section id="produtos">
       <h2>Produtos</h2>
       <div class="search-bar">
+        <div id="suggestionsProdutos" class="suggestions-box"></div>
         <input type="text" id="buscaProdutos" placeholder="Buscar produtos..." />
       </div>
       <div id='todosProdutos' class="product-list">
-        <!-- <div class="product-card">
+      <!-- <div class="product-card">
           <h3>Notebook Gamer</h3>
           <p>R$ 4.999,00</p>
         </div>
@@ -127,13 +157,14 @@
           <h3>Teclado Mecânico</h3>
           <p>R$ 299,00</p>
         </div> -->
-        <!-- Adicione mais produtos aqui com JS -->
+      <!-- Adicione mais produtos aqui com JS -->
       </div>
     </section>
 
     <section id="sobre">
       <h2>Sobre a Xabum</h2>
-      <p>Somos especialistas em tecnologia. Atuamos desde 2020 oferecendo os melhores produtos de informática com preços acessíveis.</p>
+      <p>Somos especialistas em tecnologia. Atuamos desde 2020 oferecendo os melhores produtos de informática com preços
+        acessíveis.</p>
     </section>
 
     <section id="login">
@@ -156,4 +187,5 @@
 
   <script src="js/main.js"></script>
 </body>
+
 </html>
